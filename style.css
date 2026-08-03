@@ -1,33 +1,64 @@
-body {
-    background: pink;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding-top: 150px;
+let diemBan = 0;
+let diemMay = 0;
+
+function choi(luaChon) {
+
+    const danhSach = ["keo", "bua", "bao"];
+
+    const mayChon = danhSach[
+        Math.floor(Math.random() * danhSach.length)
+    ];
+
+    let ketQua = "";
+
+    if (luaChon === mayChon) {
+        ketQua = "🤝 Hòa!";
+    }
+    else if (
+        (luaChon === "keo" && mayChon === "bao") ||
+        (luaChon === "bua" && mayChon === "keo") ||
+        (luaChon === "bao" && mayChon === "bua")
+    ) {
+        ketQua = "🎉 Bạn thắng!";
+        diemBan++;
+    }
+    else {
+        ketQua = "😢 Máy thắng!";
+        diemMay++;
+    }
+
+    document.getElementById("ketQua").innerText = ketQua;
+
+    document.getElementById("mayChon").innerText =
+        hienThi(mayChon);
+
+    document.getElementById("diemBan").innerText = diemBan;
+    document.getElementById("diemMay").innerText = diemMay;
 }
 
-.card {
-    background: white;
-    width: 400px;
-    margin: auto;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px gray;
+function hienThi(luaChon) {
+
+    if (luaChon === "keo") {
+        return "✌️ Kéo";
+    }
+
+    if (luaChon === "bua") {
+        return "✊ Búa";
+    }
+
+    return "✋ Bao";
 }
 
-h1 {
-    color: hotpink;
-}
+function choiLai() {
+    diemBan = 0;
+    diemMay = 0;
 
-button {
-    background: hotpink;
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 15px;
-    font-size: 18px;
-    cursor: pointer;
-}
+    document.getElementById("diemBan").innerText = 0;
+    document.getElementById("diemMay").innerText = 0;
 
-button:hover {
-    background: deeppink;
+    document.getElementById("mayChon").innerText = "?";
+
+    document.getElementById("ketQua").innerText =
+        "Chọn một nút để bắt đầu!";
+}
 }
