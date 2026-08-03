@@ -1,24 +1,38 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tặng bạn 🎁</title>
+    <title>Oẳn Tù Tì 🎮</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="card">
-        <h1>🎁 Gửi bạn!</h1>
+    <div class="game">
+        <h1>🎮 OẲN TÙ TÌ</h1>
+        <p>Chơi với máy 🤖</p>
 
-        <p>Có một món quà nhỏ dành cho bạn 💖</p>
+        <div class="score">
+            <span>Bạn: <b id="diemBan">0</b></span>
+            <span>Máy: <b id="diemMay">0</b></span>
+        </div>
 
-        <button onclick="moQua()">
-            Mở quà 🎁
-        </button>
+        <div class="result" id="ketQua">
+            Chọn một nút để bắt đầu!
+        </div>
 
-        <h2 id="loiChuc"></h2>
+        <div class="choices">
+            <button onclick="choi('keo')">✌️<br>Kéo</button>
+            <button onclick="choi('bua')">✊<br>Búa</button>
+            <button onclick="choi('bao')">✋<br>Bao</button>
+        </div>
+
+        <div class="computer">
+            🤖 Máy chọn: <span id="mayChon">?</span>
+        </div>
+
+        <button class="reset" onclick="choiLai()">🔄 Chơi lại</button>
     </div>
 
     <script src="script.js"></script>
